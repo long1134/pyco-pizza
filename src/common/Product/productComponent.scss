@@ -1,0 +1,137 @@
+@import "../../scss/abstracts/variables";
+@import "../../scss/abstracts/mixins";
+
+img {
+    object-fit: contain;
+    width: 200px;
+    height: 130px;
+
+    @include respond(phone) {
+        width: 120px;
+        height: 110px;
+    }
+}
+
+p {
+    font-size: 1.3rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+.product-item {
+    padding: 10px;
+    transition: all 0.2s;
+    cursor: pointer;
+    height: 230px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    img {
+        object-fit: contain;
+        width: 200px;
+        height: 130px;
+
+        @include respond(phone) {
+            width: 120px;
+            height: 110px;
+        }
+    }
+
+    &.porduct-height {
+        @include respond(big-desktop) {
+            height: 250px;
+        }
+
+        @include respond(tab-port) {
+            height: 180px;
+        }
+    }
+
+    &.pizza-height {
+        @include respond(big-desktop) {
+            height: 320px;
+        }
+    }
+
+    @media only screen and (max-width: 990px) {
+        grid-template-columns: 1fr 3fr;
+    }
+
+    &:hover {
+        background: #0B2030;
+        transition: all 0.2s;
+        color: $color-white;
+
+        & .product-btn {
+            transition: all 0.2s;
+            background-image: linear-gradient(to right, #820014, #E31837);
+            background-color: none;
+
+        }
+    }
+
+    .img-contain {
+        object-fit: contain;
+    }
+
+    img {
+        object-fit: cover;
+        width: 200px;
+        height: 130px;
+
+        @include respond(phone) {
+            width: 120px;
+            height: 110px;
+        }
+    }
+
+    .content-container {
+        height: 180px;
+
+        @media only screen and (max-width: 1800px) {
+            height: 160px;
+        }
+
+        @media only screen and (max-width: 990px) {
+            height: 110px;
+            overflow: scroll;
+        }
+    }
+
+    .content-container-pizza {
+        height: 240px;
+
+        @media only screen and (max-width: 1800px) {
+            height: 180px;
+        }
+
+        @media only screen and (max-width: 990px) {
+            height: 160px;
+            overflow: scroll;
+        }
+    }
+
+    .product-btn {
+        cursor: pointer;
+        transition: all 0.2s;
+        width: 100%;
+        padding: 10px;
+        background-color: #0B2030;
+        color: $color-white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+
+        p {
+            display: flex;
+            justify-content: center;
+
+            svg {
+                width: 2rem;
+                height: 1.5rem;
+            }
+        }
+    }
+}

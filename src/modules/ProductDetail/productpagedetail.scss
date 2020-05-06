@@ -1,0 +1,161 @@
+@import "../../scss/abstracts/variables";
+
+.bg-product-detail {
+    background-image: url("https://dominos.vn/Data/Sites/1/skins/default/img/popup_bg_1.png");
+    background-size: cover;
+    background-position: center;
+}
+
+.product-detail-container {
+    padding: 10px 50px;
+    padding-bottom: 20px;
+    color: $color-white;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+
+    @media screen and(max-width : 999px) {
+        grid-template-columns: 30% 70%;
+    }
+
+    @media screen and(max-width : 768px) {
+        grid-template-columns: 1fr;
+        max-height: 600px;
+        overflow: scroll;
+    }
+
+    @media screen and(max-height: 600px) {
+        max-height: 500px;
+    }
+
+    @media screen and(max-width : 576px) {
+        max-width: 400px;
+    }
+
+    @media screen and(max-width : 444px) {
+        max-width: 300px;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .raio-container {
+        width: 180px;
+        font-size: 1.5rem;
+
+        @media screen and(max-width : 768px) {
+            width: 150px;
+        }
+    }
+
+    .raio-option-container {
+        width: 100%;
+        font-size: 1.5rem;
+        display: grid;
+        grid-template-columns: 9fr 1fr;
+
+        h3 {
+            margin-top: 5px;
+        }
+    }
+
+    .radio-custom {
+        opacity: 0;
+        position: absolute;
+
+        &+.radio-custom-label {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 5px;
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                border: 2px solid #ddd;
+                display: inline-block;
+                vertical-align: middle;
+                width: 20px;
+                height: 20px;
+                padding: 2px;
+                margin-right: 10px;
+                text-align: center;
+                font-size: 15px;
+
+                @media screen and(max-width : 1000px) {
+                    width: 15px;
+                    height: 15px;
+                    font-size: 12px;
+                    padding: 0px;
+                }
+            }
+
+            &.option {
+                display: flex !important;
+
+            }
+
+            &.option::after {
+                height: auto;
+                content: '';
+                display: block;
+                border-bottom: dotted 2px #fff;
+                -webkit-box-flex: 1;
+                -ms-flex-positive: 1;
+                flex-grow: 1;
+                margin: 3px 5px;
+
+                @media screen and(max-width : 768px) {
+                    margin: 8px 5px;
+                }
+            }
+        }
+
+        &:checked+.radio-custom-label:before {
+            content: "\f00c";
+            font-family: 'FontAwesome';
+            background: $color-white;
+            color: $color-primary;
+        }
+
+        .radio-custom-label {
+            position: relative;
+        }
+    }
+
+    .product-detail-btn {
+        width: 100%;
+        height: 40px;
+        margin-top: auto;
+        color: $color-white;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        font-weight: 700;
+        background-image: linear-gradient(to right, #820014, #E31837);
+        margin-bottom: 30px;
+    }
+}
+
+.response-mobile {
+
+
+    @media screen and(max-width : 576px) {
+        max-width: 400px;
+    }
+
+    @media screen and(max-width : 444px) {
+        max-width: 200px;
+    }
+}
+
+.form-radido {
+    display: flex;
+
+    @media screen and(max-width : 444px) {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+}

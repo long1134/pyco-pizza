@@ -1,0 +1,12 @@
+@import "../../scss/abstracts/variables";
+
+.order-info-container {
+    display: grid;
+    margin: auto;
+    max-width: 400px;
+    min-width: 200px;
+}
+
+button {
+    margin-top: 0px;
+}

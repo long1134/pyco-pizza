@@ -1,0 +1,41 @@
+@import "../../scss/abstracts/variables";
+
+.order-method-container {
+    display: grid;
+    grid-template-columns: 8fr 1fr 8fr;
+    width: 60%;
+    margin: auto;
+    column-gap: 10px;
+
+    @media screen and(max-width : 990px) {
+        grid-template-columns: 1fr;
+        row-gap: 10px;
+    }
+
+    .grab-method {
+        background-color: #00b14f;
+        padding: 10px;
+        color: $color-white;
+
+        img {
+            display: flex;
+            margin: auto;
+        }
+    }
+
+    .goviet-method {
+        background-color: $color-red;
+        padding: 20px;
+        color: $color-white;
+
+        img {
+            display: flex;
+            margin: auto;
+        }
+    }
+
+    h3 {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+}

@@ -1,0 +1,211 @@
+@import "../../../scss/abstracts/variables";
+@import "../../../scss/abstracts/mixins";
+
+.color-red {
+    color: $color-red;
+}
+
+.grid-area-a {
+    grid-area: a;
+}
+
+.grid-area-b {
+    grid-area: b;
+}
+
+.grid-area-c {
+    grid-area: c;
+}
+
+.grid-area-d {
+    grid-area: d;
+}
+
+.grid-area-e {
+    grid-area: e;
+
+    &:hover {
+        background-color: $color-red !important;
+    }
+}
+
+.grid-area-f {
+    grid-area: f;
+}
+
+.cart-container {
+    padding: 10px;
+
+    .icon-mobile {
+        display: none;
+    }
+
+    .icon-container {
+        border: 1px solid black;
+        height: 30px;
+        width: 30px;
+        padding: 2px;
+        cursor: pointer;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    svg {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .cart-tpl-col-detail {
+
+        grid-template: "a a a a""b b c c""d d f f""e . . ."30px;
+        padding-bottom: 10px;
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        .grid-area-c {
+            text-align: right;
+        }
+
+
+        button {
+            background-color: #ccc;
+            color: #fff;
+            border: none;
+            outline: none;
+            height: 30px;
+        }
+    }
+
+    .cart-teamplate-columns {
+        // grid-template: "a b c d"auto/4fr 1fr 1fr 1fr;
+        grid-template: "a b c e""d d f ."30px/2fr 1fr 1fr 1fr;
+
+
+        button {
+            background-color: #ccc;
+            color: #fff;
+            border: none;
+            outline: none;
+            height: 30px;
+        }
+
+        .grid-area-f {
+            margin: initial;
+        }
+
+        @include respond(tab-port) {
+            grid-template: "a a a a""b b c c""d d f f""e . . ."30px;
+
+            .grid-area-c {
+                text-align: right;
+            }
+
+            .grid-area-f {
+                text-align: right;
+            }
+        }
+    }
+
+    .cart-button-container {
+        bottom: -60px;
+    }
+}
+
+
+
+.cart-button-container {
+    background-color: $color-primary;
+    width: 100%;
+    padding: 10px 20px;
+    height: 60px;
+    position: absolute;
+    bottom: 0px;
+
+    .cart-button {
+        cursor: pointer;
+        border: 0px;
+        outline: none;
+        width: 100%;
+        height: 40px;
+        background-image: linear-gradient(to right, #820014, #E31837);
+        color: $color-white;
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+}
+
+.cart-container-detail {
+    max-height: 600px;
+
+    .cart-item-container {
+        height: 400px;
+        width: 100%;
+        overflow: scroll;
+    }
+
+    @media only screen and (max-width: 1444px) {
+        transition: all 0.3s;
+        position: fixed !important;
+        bottom: -400px;
+
+        .cart-item-container {
+            height: 150px;
+            width: 100%;
+            overflow: scroll;
+        }
+    }
+
+    &.active {
+        transition: all 0.3s;
+        bottom: -50px;
+        max-width: 1320px;
+        bottom: 0px;
+
+        @media screen and (max-width : 1440px) {
+            max-width: 1110px;
+            bottom: 0px;
+
+            .icon-mobile {
+                display: block;
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+        }
+
+        @media screen and (max-width : 1200px) {
+            max-width: 930px;
+        }
+
+        @media screen and (max-width : 1000px) {
+            max-width: 690px;
+        }
+
+        @media screen and (max-width : 768px) {
+            max-width: 510px;
+        }
+
+        @media screen and (max-width : 580px) {
+            max-width: 540px;
+        }
+
+        @media screen and (max-width : 570px) {
+            left: 0px;
+            max-width: 550px;
+        }
+    }
+}
+
+.count {
+    right: -10px;
+    top: -5px;
+    position: absolute;
+    height: 1.8rem;
+    width: 1.8rem;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+}

@@ -1,0 +1,17 @@
+@import "../../scss/abstracts/variables";
+
+
+.login-container {
+    max-width: 400px;
+    margin: auto;
+
+    h2 {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    a {
+        color: $color-red;
+        font-size: 1.2rem;
+    }
+}

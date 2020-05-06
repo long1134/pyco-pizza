@@ -1,0 +1,84 @@
+@import "../../scss/abstracts/variables";
+
+.FlowProgress {
+    height: 40px;
+    width: 100%;
+    margin-bottom: 40px;
+    overflow: hidden;
+    background-color: $color-black;
+    color: $color-white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+
+    @media screen and(max-width : 990px) {
+        height: 40px;
+    }
+
+    h3 {
+        padding: 8px;
+
+        @media screen and(max-width : 990px) {
+            padding: 10px;
+        }
+    }
+
+    .step-desktop {
+        display: block;
+
+        @media screen and(max-width : 990px) {
+            display: none;
+        }
+    }
+
+    .step-mobile {
+        display: none;
+
+        @media screen and(max-width : 990px) {
+            display: block;
+        }
+    }
+
+    .active {
+        background-color: $color-blue;
+        position: relative;
+        display: block !important;
+        height: 40px;
+
+        &::after {
+            top: 10px;
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: $color-blue;
+            right: -9px;
+            clip-path: polygon(0 0, 0% 100%, 100% 50%);
+
+            @media screen and(max-width : 990px) {
+                top: 10px;
+            }
+        }
+    }
+
+    @media screen and(max-width : 990px) {
+        &.step-1 {
+            grid-template-columns: 4fr 1fr 1fr 1fr !important;
+        }
+
+        &.step-2 {
+            grid-template-columns: 1fr 4fr 1fr 1fr !important;
+            ;
+        }
+
+        &.step-3 {
+            grid-template-columns: 1fr 1fr 4fr 1fr !important;
+            ;
+        }
+
+        &.step-4 {
+            grid-template-columns: 1fr 1fr 1fr 4fr !important;
+            ;
+        }
+    }
+}
