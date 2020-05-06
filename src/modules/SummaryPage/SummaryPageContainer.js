@@ -8,7 +8,6 @@ import CartContainer from "../../common/CartComponent/CartContainer"
 // import "../../../scss/index.scss"
 
 function SummaryPageContainer(props) {
-    console.log(props)
     return (
         <CartContainer type="summary" {...props} />
     );

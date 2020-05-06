@@ -4,7 +4,6 @@ import CartComponent from "../../common/CartComponent/CartContainer"
 import "./CheckoutPage.scss"
 
 function CheckoutPageContainer(props) {
-    console.log(props)
     return (
         <div className="container">
             <FlowProgress type="step-4" />

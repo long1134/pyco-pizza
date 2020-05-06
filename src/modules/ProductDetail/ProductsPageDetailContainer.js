@@ -5,7 +5,6 @@ import * as cartReducers from "../../common/CartComponent/Slice"
 import "./productpagedetail.scss"
 
 function ProductPageDetail(props) {
-    console.log(props)
     const cheeses = [
         { name: "Default", price: 0 },
         { name: "Extra Cheese", price: 10000 },
@@ -32,7 +31,6 @@ function ProductPageDetail(props) {
     function HandleRadioCheese(e) {
         setPrice(price - product.cheese.price + cheeses[e.value].price)
         setProduct({ ...product, [e.name]: cheeses[e.value] })
-        console.log(product)
     }
     function AddToCart() {
         dispatch(cartReducers.actions.AddToCart({

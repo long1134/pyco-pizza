@@ -6,16 +6,8 @@ import "./productComponent.scss"
 function ProductComponent(props) {
     // console.log(props)
     const { imgUrl, name, prices, desc } = props
-    console.log(props)
 
     function AddToCartProduct() {
-        console.log({
-            categoryId: props.categoryId,
-            product: {
-                price: prices[0].price,
-                name: name
-            }
-        })
         if (props.AddToCart) {
             props.AddToCart({
                 categoryId: props.categoryId,

@@ -6,7 +6,6 @@ function FillShippingPageContainer(props) {
     function HandleMethod() {
         props.history.push("login-carry-out")
     }
-    console.log(props)
     return (
         <div className="container">
             <FlowProgress type="step-1" />

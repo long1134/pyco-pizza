@@ -15,11 +15,9 @@ export const productSlice = createSlice({
         },
         InitDataSuccess: (state, props) => {
             state.products = []
-            console.log(props.payload.products)
 
             for (let i in props.payload.products) {
                 let prices = []
-                console.log(props.payload.products[i].price.sizeM)
                 if (props.payload.products[i].price.sizeM) {
                     prices = [{
                         name: "Small - 7 inch",
@@ -43,11 +41,9 @@ export const productSlice = createSlice({
                     prices: [...prices]
                 })
                 state.loading = false
-                console.log(state.loading)
             }
         },
         InitDataFail: (state, props) => {
-            console.log("fail")
         },
     },
 });

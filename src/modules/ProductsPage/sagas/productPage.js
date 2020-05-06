@@ -5,7 +5,6 @@ import apiServices from "../../../services/api"
 
 export function* handleInitData(action) {
     try {
-        console.log(action.payload[0])
         let api = apiServices.urlPizza
         if (action.payload[0].toLowerCase() === "/spaghetti") {
             api = apiServices.urlSpagetti
@@ -26,13 +25,11 @@ export function* handleInitData(action) {
         }).catch(err => {
             error = err
         })
-        console.log(data)
         if (error) {
             return yield put(Slice.actions.InitDataFail(error))
         }
         yield put(Slice.actions.InitDataSuccess(data))
     } catch (e) {
-        console.log(e)
     }
 }
 

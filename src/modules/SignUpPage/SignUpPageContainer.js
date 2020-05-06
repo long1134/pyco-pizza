@@ -33,7 +33,6 @@ function SignUpPageContainer(props) {
         else if (values.confirmPassword !== values.password) {
             errors.confirmPassword = "Password and confirm password must be the same"
         }
-        console.log(values.phone)
         if (!values.phone) {
             errors.phone = "Required"
         }

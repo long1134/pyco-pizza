@@ -25,7 +25,6 @@ function CartItemDetail(props) {
                 <button disabled={props.type === "checkout"}
                     className="icon-container "
                     onClick={e => {
-                        console.log(e)
                         props.HandleQuantity({ number: 1, index: props.index })
                     }}>
                     <BsPlus color="black" />

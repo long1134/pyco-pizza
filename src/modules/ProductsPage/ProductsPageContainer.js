@@ -21,7 +21,6 @@ function ProductPageContainer(props) {
     const [popupLoading, setPopupLoading] = useState(false)
     const urlParams = props.match.params[0].toLowerCase().substring(1)
     const params = ["spaghetti", "drinks", "salad"]
-    console.log(props)
     const slidersName = ["pizza", "spaghetti", "drinks", "salad"]
     const setting = {
         mouseDrag: true,
@@ -58,7 +57,6 @@ function ProductPageContainer(props) {
     }
 
     function AddToCart(data) {
-        console.log(data)
         dispatch(cartSlice.actions.AddToCart({
             categoryId: data.categoryId,
             product: {

@@ -36,7 +36,6 @@ function LoginPageContainer(props) {
         else if (values.password.length < 8) {
             errors.password = "Pass word must have more 8 words"
         }
-        console.log(errors)
         return errors
     }
 
@@ -47,7 +46,6 @@ function LoginPageContainer(props) {
         },
         validate,
         onSubmit: values => {
-            console.log("okkk")
             dispatch(Slice.actions.Login(formik.values))
         },
     })

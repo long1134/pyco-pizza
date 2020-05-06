@@ -23,14 +23,12 @@ export const cartSlice = createSlice({
             }
             state.products = products
             state.total = total
-            console.log(state.products)
         },
         AddToCart: (state, props) => {
             let quantity = Coockie.get("quantity") ? Coockie.get("quantity") : 0
             quantity++
             Coockie.set("quantity", JSON.stringify(quantity), { expires: 1 / 24 })
             state.products.push(props.payload)
-            console.log(props.payload)
             if (props.payload.pizza) {
                 state.total += props.payload.pizza.price + props.payload.cheese.price
             }
@@ -51,8 +49,6 @@ export const cartSlice = createSlice({
                 state.total -= (products[index].pizza.price + products[index].cheese.price) * products[index].pizza.quantity
             }
             else {
-                console.log(quantity)
-                console.log(products[index].product.quantity)
                 quantity -= products[index].product.quantity
                 Coockie.set("quantity", JSON.stringify(quantity), { expires: 1 / 24 })
                 state.total -= products[index].product.price * products[index].product.quantity

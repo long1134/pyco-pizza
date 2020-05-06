@@ -7,16 +7,13 @@ export function* handleSignUp(action) {
     try {
         let data = {}
         let error = ""
-        console.log(action)
         yield axios({
             method: "post",
             data: { ...action.payload },
             url: api.urlSignup
         }).then(res => {
-            console.log(res.data)
             data = res.data
         }).catch(err => {
-            console.log(err)
             error = err
         })
         if (error) {
@@ -24,7 +21,6 @@ export function* handleSignUp(action) {
         }
         yield put(Slice.actions.SignUpSuccess(data))
     } catch (e) {
-        console.log(e)
     }
 }
 

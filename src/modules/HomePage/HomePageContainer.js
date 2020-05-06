@@ -21,7 +21,6 @@ function HomePageContainer(props) {
             img: "https://media2.s-nbcnews.com/j/newscms/2017_11/1201160/food-lucinda-scala-quinn-spaghetti-choc-pb-pretzel-squares-tease-today-170314-01_14850ef6d83157c0b56e22066c93ccff.focal-920x460.jpg"
         },
     ]
-    console.log(props)
     return (
         <div className="container">
             <div className="container-category">

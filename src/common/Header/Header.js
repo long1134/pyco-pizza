@@ -40,7 +40,6 @@ function Header(props) {
             setUser({ ...JSON.parse(userData) })
         }
     }, [])
-    console.log(cartReducer)
     return (
         <header>
             <div className="container">

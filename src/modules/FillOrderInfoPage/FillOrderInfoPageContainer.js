@@ -7,7 +7,6 @@ import * as Coockie from "js-cookie"
 import "./FillOrderInfoPage.scss"
 
 function FillOrderInfoPageContainer(props) {
-    console.log(props)
     const [isSubmit, setIsSubmit] = useState(false)
     const userInfo = Coockie.get("user") ? JSON.parse(Coockie.get("user")) : {}
     const validate = values => {
