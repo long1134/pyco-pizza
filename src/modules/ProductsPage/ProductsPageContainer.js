@@ -18,10 +18,11 @@ function ProductPageContainer(props) {
     useEffect(() => {
         dispatch(Slice.actions.InitData(props.match.params))
     }, [])
+    const [popupLoading, setPopupLoading] = useState(false)
     const urlParams = props.match.params[0].toLowerCase().substring(1)
-    const params = ["spagetti", "drinks", "salad"]
+    const params = ["spaghetti", "drinks", "salad"]
     console.log(props)
-    const slidersName = ["pizza", "spagetti", "drinks", "salad"]
+    const slidersName = ["pizza", "spaghetti", "drinks", "salad"]
     const setting = {
         mouseDrag: true,
         loop: true,
@@ -69,12 +70,13 @@ function ProductPageContainer(props) {
     }
     return (
         <div className="container">
-            <div className={productsReducer.products.length === 0 ? "customize-popup-open" : "customize-popup-close"}>
+            <div className={productsReducer.products.length === 0 || popupLoading ? "customize-popup-open" : "customize-popup-close"}>
                 <PopupLoading />
             </div>
             <TinySlider settings={setting} ref={ts => tsGlobal = ts}>
                 {slidersName.map((slide, index) => (
                     <div onClick={e => {
+                        setPopupLoading(true)
                         props.history.push("/product/" + slide)
                         window.location.reload(false)
                     }}

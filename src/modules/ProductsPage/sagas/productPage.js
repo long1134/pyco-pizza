@@ -7,7 +7,7 @@ export function* handleInitData(action) {
     try {
         console.log(action.payload[0])
         let api = apiServices.urlPizza
-        if (action.payload[0].toLowerCase() === "/spagetti") {
+        if (action.payload[0].toLowerCase() === "/spaghetti") {
             api = apiServices.urlSpagetti
         }
         else if (action.payload[0].toLowerCase() === "/drinks") {

@@ -7,19 +7,23 @@ export const loginSlice = createSlice({
         user: {},
         token: "",
         messageError: "",
-        loginSuccess: false
+        loginSuccess: false,
+        loading: false
     },
     reducers: {
         Login: (state, props) => {
+            state.loading = true
         },
         LoginSuccess: (state, props) => {
             state.messageError = ""
             state.loginSuccess = true
             Coockie.set("user", JSON.stringify(props.payload.user), { expires: 1 / 24 })
             Coockie.set("token", props.payload.token, { expires: 1 / 24 })
+            state.loading = false
         },
         LoginFail: (state, props) => {
             state.messageError = props["payload"].response.data.message
+            state.loading = false
         },
     },
 });

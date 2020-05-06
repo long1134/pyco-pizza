@@ -4,6 +4,7 @@ import ButtonComponent from "../../common/Button/ButtonComponent"
 import { FaUserAlt, FaLock } from "react-icons/fa"
 import { Link } from 'react-router-dom';
 import FlowProgress from "../../common/FlowProgress/FlowProgress"
+import PopupLoading from "../../common/popupLoading/popupLoading"
 import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux';
 import * as Slice from "./Slice"
@@ -65,6 +66,10 @@ function LoginPageContainer(props) {
     }
     return (
         <div>
+
+            <div className={loginReducers.loading ? "customize-popup-open" : "customize-popup-close"}>
+                <PopupLoading />
+            </div>
             {props.type === "login-carry-out" ?
                 <FlowProgress type="step-2" /> : ""}
             <div className="container">
