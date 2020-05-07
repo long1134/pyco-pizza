@@ -18,7 +18,7 @@ function SignUpPageContainer(props) {
         if (!values.email) {
             errors.email = "Required"
         }
-        else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
+        else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.email)) {
             errors.email = "Email is invalid"
         }
         if (!values.password) {
@@ -87,7 +87,7 @@ function SignUpPageContainer(props) {
             </div>
             <form className="login-container">
                 <h2 className="mb-5">Sign Up</h2>
-                <p className="color-red txt-center mb-2">{signUpReducers.messageError}</p>
+                <p className="color-red txt-center mb-2 fs-15">{signUpReducers.messageError}</p>
                 <TextInput
                     type="text"
                     name="email"
@@ -97,7 +97,8 @@ function SignUpPageContainer(props) {
                     error={isSubmit ? formik.errors.email : ""}
                     label={<h3>Email</h3>} />
                 <TextInput
-                    type="new-password"
+                    autoComplete="password"
+                    type="password"
                     name="password"
                     onChange={formik.handleChange}
                     value={formik.values.password}
@@ -107,6 +108,7 @@ function SignUpPageContainer(props) {
                 <TextInput
                     type="password"
                     name="confirmPassword"
+                    autoComplete="confirmPassword"
                     onChange={formik.handleChange}
                     placeholder="confirm password"
                     error={isSubmit ? formik.errors.confirmPassword : ""}

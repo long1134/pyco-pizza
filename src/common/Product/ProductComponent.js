@@ -24,7 +24,7 @@ function ProductComponent(props) {
             <div>
                 <div className={prices.length === 1 ? "content-container " : "content-container-pizza"}>
                     <h3>{name}</h3>
-                    <p className="mb-1">{desc}</p>
+                    <p className="mb-1 fs-15">{desc}</p>
                     {prices ?
                         prices.map((price, index) => (
                             <p key={index}>{price.name} : {price.price} đ</p>

@@ -108,7 +108,8 @@ function ProductPageContainer(props) {
                                 )}
                             </Popup>
                         ))
-                        : productsReducer.products.map((product, index) => (<ProductComponent AddToCart={AddToCart} {...product} />))}
+                        : productsReducer.products.map((product, index) => (
+                            <ProductComponent key={index} AddToCart={AddToCart} {...product} />))}
                 </div>
                 <CartContainer onClick={HandleStatusCartDetail} type="detail" status={statusCartDetail} {...props} />
             </div>

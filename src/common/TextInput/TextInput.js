@@ -6,6 +6,7 @@ function TextInput(props) {
         <div className={props.className}>
             {props.label}
             <input className="texinput-form"
+                autoComplete={props.autoComplete}
                 name={props.name}
                 onChange={props.onChange}
                 value={props.value}

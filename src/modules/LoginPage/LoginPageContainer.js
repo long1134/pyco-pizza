@@ -27,7 +27,7 @@ function LoginPageContainer(props) {
                 errors.emailorphone = "Your phone is invalid Viet Nam phone format"
             }
         }
-        else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(values.emailorphone)) {
+        else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.emailorphone)) {
             errors.emailorphone = "Email is invalid"
         }
         if (!values.password) {
@@ -73,7 +73,7 @@ function LoginPageContainer(props) {
             <div className="container">
                 <form className="login-container" onSubmit={formik.handleSubmit}>
                     <h2 className="mb-5">Sign in</h2>
-                    <p className="color-red txt-center mb-2">{loginReducers.messageError}</p>
+                    <p className="color-red txt-center mb-2 fs-15">{loginReducers.messageError}</p>
                     <TextInput
                         type="text"
                         name="emailorphone"
