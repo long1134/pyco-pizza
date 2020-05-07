@@ -16,6 +16,10 @@
     display: grid;
 }
 
+.ds-inline-block {
+    display: inline-block;
+}
+
 .ds-block-mobile {
     @media screen and (max-width : 600px) {
         display: block !important;
@@ -28,6 +32,10 @@
 
 .mt-0 {
     margin-top: 0px;
+}
+
+.mt-1 {
+    margin-top: 10px;
 }
 
 .mt-2 {
@@ -122,6 +130,16 @@
 
 .cursor-auto {
     cursor: auto !important;
+}
+
+.fw-bold {
+    font-weight: bold;
+}
+
+.icon {
+    margin-top: 0.3rem;
+    margin-right: .5rem;
+    font-size: 2rem;
 }
 
 .row {

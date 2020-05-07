@@ -90,6 +90,7 @@ export const cartSlice = createSlice({
         DeleteData: (state, props) => {
             state.total = 0
             state.products = []
+            Coockie.remove("orderInfo")
             Coockie.remove("cart")
             Coockie.set("quantity", 0, { expires: 1 / 24 })
         }

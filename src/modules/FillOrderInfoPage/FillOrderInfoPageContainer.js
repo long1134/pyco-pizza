@@ -31,14 +31,17 @@ function FillOrderInfoPageContainer(props) {
         return errors
     }
 
+    const orderInfo = Coockie.get("orderInfo") ? JSON.parse(Coockie.get("orderInfo")) : {}
+
     const formik = useFormik({
         initialValues: {
-            address: "",
+            address: orderInfo.address,
             phone: userInfo.phone,
             name: userInfo.firstname + " " + userInfo.lastname
         },
         validate,
         onSubmit: values => {
+            Coockie.set("orderInfo", JSON.stringify(values), { expires: 1 / 24 })
             props.history.push("/checkout")
         },
     })
@@ -49,7 +52,7 @@ function FillOrderInfoPageContainer(props) {
     return (
         <div className="container">
             <FlowProgress type="step-3" />
-            <h2 className="txt-center mb-4">DEILIVERY</h2>
+            <h2 className="txt-center mb-4" >DEILIVERY</h2>
             <form className="order-info-container">
                 <TextInput label={<h4>Address</h4>}
                     name="address"
@@ -70,11 +73,17 @@ function FillOrderInfoPageContainer(props) {
                     error={isSubmit ? formik.errors.name : ""}
                     placeholder="Name" />
                 <div className="ds-flex">
-                    <ButtonComponent className="button__component bg-gey width-130" content="BACK" onClick={e => props.history.push("/shipping")} />
-                    <ButtonComponent className="button__component ml-auto bg-red width-130 mt-0" content="CONTINUE" onClick={e => {
-                        handleSubmit()
-                        formik.handleSubmit()
-                    }} />
+                    <ButtonComponent
+                        className="button__component bg-gey width-130"
+                        content="BACK"
+                        onClick={e => props.history.push("/shipping")} />
+                    <ButtonComponent
+                        className="button__component ml-auto bg-red width-130 mt-0"
+                        content="CONTINUE"
+                        onClick={e => {
+                            handleSubmit()
+                            formik.handleSubmit()
+                        }} />
                 </div>
             </form>
 

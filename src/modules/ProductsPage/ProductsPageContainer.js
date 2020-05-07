@@ -25,6 +25,7 @@ function ProductPageContainer(props) {
     const setting = {
         mouseDrag: true,
         loop: true,
+        nav: false,
         responsive: {
             765: {
                 items: 4,
