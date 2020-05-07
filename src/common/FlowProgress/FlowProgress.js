@@ -1,9 +1,5 @@
 //logo https://lh3.google.com/u/0/d/1OoPYOcT6WjM4x5aKiSK5RgZhUZ9e0_Ao=w1920-h902-iv1
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import * as reducers from "../../modules/WrappedComponent/Slice"
-import { FaShoppingCart, FaUserCircle } from "react-icons/fa"
-import { FiMenu } from "react-icons/fi"
+import React from 'react';
 import "./FlowProgress.scss"
 
 function FlowProgress(props) {

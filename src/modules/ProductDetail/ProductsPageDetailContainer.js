@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ButtonComponent from "../../common/Button/ButtonComponent"
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import * as cartReducers from "../../common/CartComponent/Slice"
 import "./productpagedetail.scss"
 
@@ -53,58 +53,118 @@ function ProductPageDetail(props) {
                     <h2>{name}</h2>
                     <p className="mb-2">{desc}</p>
                     <img src={imgUrl} alt={name} />
-                    <h3 className="txt-center">{price.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} đ</h3>
+                    <h3 className="txt-center">{
+                        new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}</h3>
                 </div>
                 <div className="response-mobile">
                     <h2>Choose pizza size</h2>
                     <form className="form-radido" name="size" onChange={e => HandleRadioSize(e.target)}>
                         <div className="raio-container">
-                            <input id="pizzza-size-1" onChange={e => { }} className="radio-custom" name="size" type="radio" value={0} checked={product.size === "Small - 7 inch"} />
+                            <input id="pizzza-size-1"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="size"
+                                type="radio"
+                                value={0}
+                                checked={product.size === "Small - 7 inch"} />
                             <label htmlFor="pizzza-size-1" className="radio-custom-label">Small - 7 inch</label>
                         </div>
                         <div className="raio-container">
-                            <input id="pizzza-size-2" onChange={e => { }} className="radio-custom" name="size" type="radio" value={1} checked={product.size === "Medium - 9 inch"} />
+                            <input id="pizzza-size-2"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="size"
+                                type="radio"
+                                value={1}
+                                checked={product.size === "Medium - 9 inch"} />
                             <label htmlFor="pizzza-size-2" className="radio-custom-label">Medium - 9 inch</label>
                         </div>
                         <div className="raio-container">
-                            <input id="pizzza-size-3" onChange={e => { }} className="radio-custom" name="size" type="radio" value={2} checked={product.size === "Large - 12 inch"} />
+                            <input id="pizzza-size-3"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="size"
+                                type="radio"
+                                value={2}
+                                checked={product.size === "Large - 12 inch"} />
                             <label htmlFor="pizzza-size-3" className="radio-custom-label">Large - 12 inch</label>
                         </div>
                     </form>
                     <h2>Choose pizza crust</h2>
                     <form className="form-radido" onChange={e => HandleRadioCrust(e.target)}>
                         <div className="raio-container">
-                            <input id="pizzza-crust-1" onChange={e => { }} className="radio-custom" name="crust" type="radio" value="Thin Crust" checked={product.crust === "Thin Crust"} />
+                            <input id="pizzza-crust-1"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="crust"
+                                type="radio"
+                                value="Thin Crust"
+                                checked={product.crust === "Thin Crust"} />
                             <label htmlFor="pizzza-crust-1" className="radio-custom-label">Thin Crust</label>
                         </div>
                         <div className="raio-container">
-                            <input id="pizzza-crust-2" onChange={e => { }} className="radio-custom" name="crust" type="radio" value="Hand Tossed" checked={product.crust === "Hand Tossed"} />
+                            <input id="pizzza-crust-2"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="crust"
+                                type="radio"
+                                value="Hand Tossed"
+                                checked={product.crust === "Hand Tossed"} />
                             <label htmlFor="pizzza-crust-2" className="radio-custom-label">Hand Tossed</label>
                         </div>
                         <div className="raio-container">
-                            <input id="pizzza-crust-3" onChange={e => { }} className="radio-custom" name="crust" type="radio" value="New York Crust" checked={product.crust === "New York Crust"} />
+                            <input id="pizzza-crust-3"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="crust"
+                                type="radio"
+                                value="New York Crust"
+                                checked={product.crust === "New York Crust"} />
                             <label htmlFor="pizzza-crust-3" className="radio-custom-label">New York Crust</label>
                         </div>
                     </form>
                     <h2>Options</h2>
                     <form className="mb-4" onChange={e => HandleRadioCheese(e.target)}>
                         <div className="raio-option-container">
-                            <input id="pizzza-otpion-0" onChange={e => { }} className="radio-custom" name="cheese" type="radio" value="0" checked={product.cheese.name === "Default"} />
+                            <input id="pizzza-otpion-0"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="cheese"
+                                type="radio"
+                                value="0"
+                                checked={product.cheese.name === "Default"} />
                             <label htmlFor="pizzza-otpion-0" className="radio-custom-label option">Default</label>
                             <h3>0.000đ</h3>
                         </div>
                         <div className="raio-option-container">
-                            <input id="pizzza-otpion-1" onChange={e => { }} className="radio-custom" name="cheese" type="radio" value="1" checked={product.cheese.name === "Extra Cheese"} />
+                            <input id="pizzza-otpion-1"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="cheese"
+                                type="radio"
+                                value="1" checked={product.cheese.name === "Extra Cheese"} />
                             <label htmlFor="pizzza-otpion-1" className="radio-custom-label option">Extra Cheese</label>
                             <h3>10.000đ</h3>
                         </div>
                         <div className="raio-option-container">
-                            <input id="pizzza-otpion-2" onChange={e => { }} className="radio-custom" name="cheese" type="radio" value="2" checked={product.cheese.name === "Double Cheese"} />
+                            <input id="pizzza-otpion-2"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="cheese"
+                                type="radio"
+                                value="2"
+                                checked={product.cheese.name === "Double Cheese"} />
                             <label htmlFor="pizzza-otpion-2" className="radio-custom-label option">Double Cheese</label>
                             <h3>20.000đ</h3>
                         </div>
                         <div className="raio-option-container">
-                            <input id="pizzza-otpion-3" onChange={e => { }} className="radio-custom" name="cheese" type="radio" value="3" checked={product.cheese.name === "Triple Cheese"} />
+                            <input id="pizzza-otpion-3"
+                                onChange={e => { }}
+                                className="radio-custom"
+                                name="cheese"
+                                type="radio"
+                                value="3"
+                                checked={product.cheese.name === "Triple Cheese"} />
                             <label htmlFor="pizzza-otpion-3" className="radio-custom-label option">Triple Cheese</label>
                             <h3>30.000đ</h3>
                         </div>

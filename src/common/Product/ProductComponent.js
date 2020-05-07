@@ -20,7 +20,7 @@ function ProductComponent(props) {
     }
     return (
         <div className={"product-item " + (!props.AddToCart ? "pizza-height" : "porduct-height")} onClick={e => AddToCartProduct()}>
-            <img src={imgUrl} className={props.categoryId === "2" ? "img-contain" : ""} />
+            <img src={imgUrl} alt={name} className={props.categoryId === "2" ? "img-contain" : ""} />
             <div>
                 <div className={prices.length === 1 ? "content-container " : "content-container-pizza"}>
                     <h3>{name}</h3>

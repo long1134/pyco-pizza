@@ -1,7 +1,7 @@
 
-import { createBrowserHistory, createMemoryHistory } from "history";
+import { createBrowserHistory } from "history";
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { routerMiddleware, connectRouter } from "connected-react-router";
+import { connectRouter } from "connected-react-router";
 import rootReducers from "./reducers";
 import rootSagas from "./sagas";
 import createSagaMiddleware from 'redux-saga';

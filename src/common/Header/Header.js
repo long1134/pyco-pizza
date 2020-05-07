@@ -1,7 +1,5 @@
 //logo https://lh3.google.com/u/0/d/1OoPYOcT6WjM4x5aKiSK5RgZhUZ9e0_Ao=w1920-h902-iv1
 import React, { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import * as reducers from "../../modules/WrappedComponent/Slice"
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa"
 import * as Coockie from "js-cookie"
 import { FiMenu } from "react-icons/fi"
@@ -26,9 +24,6 @@ function Header(props) {
             }
         }
     }
-
-    const cartReducer = useSelector(cartSlice.reducers)
-    const products = cartReducer.products
     var quantity = Coockie.get("quantity") ? JSON.parse(Coockie.get("quantity")) : 0
 
 

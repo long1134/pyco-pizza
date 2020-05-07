@@ -1,5 +1,4 @@
-import { createSlice, compose } from '@reduxjs/toolkit';
-import * as Coockie from "js-cookie"
+import { createSlice } from '@reduxjs/toolkit';
 
 export const SignUpSlice = createSlice({
     name: 'signup',
