@@ -95,7 +95,7 @@ function ProductPageContainer(props) {
                 <IoIosArrowForward />
             </button>
             <div className="ds-grid grid-tpl-col-3-1 mt-3">
-                <div className="ds-grid grid-tpl-col-1-1 ">
+                <div className="ds-grid grid-tpl-col-1-1 row-gap-20">
                     {params.indexOf(urlParams) === -1 ?
                         productsReducer.products.map((product, index) => (
                             <Popup key={index}
