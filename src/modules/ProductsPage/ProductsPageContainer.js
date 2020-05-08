@@ -11,6 +11,7 @@ import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from 'react-redux';
 import * as Slice from "./Slice"
 import * as cartSlice from "../../common/CartComponent/Slice"
+import PopupMessage from "../../common/popup/Popup"
 import "./productpage.scss"
 
 function ProductPageContainer(props) {
@@ -19,6 +20,7 @@ function ProductPageContainer(props) {
         dispatch(Slice.actions.InitData(props.match.params))
     }, [])
     const [popupLoading, setPopupLoading] = useState(false)
+    const [popupMesage, setPopupMesage] = useState(false)
     const urlParams = props.match.params[0].toLowerCase().substring(1)
     const params = ["spaghetti", "drinks", "salad"]
     const slidersName = ["pizza", "spaghetti", "drinks", "salad"]
@@ -55,6 +57,16 @@ function ProductPageContainer(props) {
 
     function HandleStatusCartDetail() {
         setStatusCartDetail(statusCartDetail === "open" ? "close" : "open")
+    }
+
+    function handleCheckout() {
+        console.log(total === 0 && popupMesage)
+        if (total === 0) {
+            setPopupMesage(true)
+        }
+        else {
+            props.history.push("/shipping")
+        }
     }
 
     function AddToCart(data) {
@@ -113,19 +125,22 @@ function ProductPageContainer(props) {
                 </div>
                 <CartContainer onClick={HandleStatusCartDetail} type="detail" status={statusCartDetail} {...props} />
             </div>
-            <div className="snack-bar" onClick={e => HandleStatusCartDetail()}>
+            <div className={total === 0 && popupMesage ? "customize-popup-open" : "customize-popup-close"} onClick={e => setPopupMesage(false)}>
+                <PopupMessage message={"Your cart can'nt be empty"} />
+            </div>
+            <div className="snack-bar">
                 <div className="container ds-grid snack-bar-content">
-                    <div className="">
+                    <div className="" onClick={e => HandleStatusCartDetail()}>
                         <div className="ps-relative mt-2">
                             <FaShoppingCart size={15} color="#0B2030" />
                             <div className="count bg-red">{total}</div>
                         </div>
                         <div className="ds-flex">
-                            <h3>Tổng cộng</h3>
-                            <h3 className="ml-auto">{cartReducer.total.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} đ</h3>
+                            <h3 className="mr-2">Total : </h3>
+                            <h3 >{cartReducer.total.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} đ</h3>
                         </div>
                     </div>
-                    <ButtonComponent content="Thanh toán" className="snack-bar-btn" />
+                    <ButtonComponent onClick={handleCheckout} content="Checkout" className="snack-bar-btn cursor-pointer" />
                 </div>
             </div>
         </div>
