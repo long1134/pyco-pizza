@@ -102,7 +102,7 @@ function ProductPageContainer(props) {
                                 trigger={<div className="ProductComponent-container">
                                     <ProductComponent {...product} /></div>}
                                 modal
-                                closeOnDocumentClick position="right center">
+                                closeOnDocumentClick position="right">
                                 {close => (
                                     <ProductDetailComponent product={{ ...product }} onClose={close} />
                                 )}
@@ -114,15 +114,19 @@ function ProductPageContainer(props) {
                 <CartContainer onClick={HandleStatusCartDetail} type="detail" status={statusCartDetail} {...props} />
             </div>
             <div className="snack-bar" onClick={e => HandleStatusCartDetail()}>
-                <div className="ps-relative mt-2">
-                    <FaShoppingCart size={15} color="#0B2030" />
-                    <div className="count bg-red">{total}</div>
+                <div className="container ds-grid snack-bar-content">
+                    <div className="">
+                        <div className="ps-relative mt-2">
+                            <FaShoppingCart size={15} color="#0B2030" />
+                            <div className="count bg-red">{total}</div>
+                        </div>
+                        <div className="ds-flex">
+                            <h3>Tổng cộng</h3>
+                            <h3 className="ml-auto">{cartReducer.total.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} đ</h3>
+                        </div>
+                    </div>
+                    <ButtonComponent content="Thanh toán" className="snack-bar-btn" />
                 </div>
-                <div className="ds-flex">
-                    <h3>Tổng cộng</h3>
-                    <h3 className="ml-auto">{cartReducer.total.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} đ</h3>
-                </div>
-                <ButtonComponent content="Thanh toán" className="snack-bar-btn" />
             </div>
         </div>
     );

@@ -3,11 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa"
 import * as Coockie from "js-cookie"
 import { FiMenu } from "react-icons/fi"
+import { useSelector, useDispatch } from 'react-redux';
 import * as cartSlice from "../CartComponent/Slice"
 import "./scss/header.scss"
 
 function Header(props) {
     const [user, setUser] = useState({})
+    const dispatch = useDispatch()
+    const cartReducer = useSelector(cartSlice.reducers)
     function HandleAccount(action) {
         if (action === "login") {
             if (!user.firstname)
@@ -26,15 +29,15 @@ function Header(props) {
     }
     var quantity = Coockie.get("quantity") ? JSON.parse(Coockie.get("quantity")) : 0
 
-
     useEffect(() => {
-        cartSlice.actions.InitData()
+        dispatch(cartSlice.actions.InitData())
         let userData = Coockie.get("user")
         // console.log(JSON.parse(Coockie.get("quantity")))
         if (userData) {
             setUser({ ...JSON.parse(userData) })
         }
     }, [])
+    quantity = cartReducer.quantity
     return (
         <header>
             <div className="container">

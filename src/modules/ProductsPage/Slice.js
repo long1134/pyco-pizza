@@ -31,7 +31,7 @@ export const productSlice = createSlice({
                     }]
                 }
                 else {
-                    prices = [{ name: "price", price: props.payload.products[i].price.sizeS }]
+                    prices = [{ name: "Price", price: props.payload.products[i].price.sizeS }]
                 }
                 state.products.push({
                     categoryId: props.payload.products[i].idCategory,

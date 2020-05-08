@@ -5,6 +5,8 @@ header {
     height: 9rem;
     background-color: $color-primary;
     margin-bottom: 50px;
+    position: fixed;
+    z-index: 1999;
 
     .logo {
         background-image: url("https://pycopizzabackend.herokuapp.com/api/h/img/5eacf1f4e67dcd1a4c36bfbb");

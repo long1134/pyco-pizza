@@ -5,7 +5,8 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState: {
         products: [],
-        total: 0
+        total: 0,
+        quantity: Coockie.get("quantity") ? parseInt(Coockie.get("quantity")) : 0
     },
     reducers: {
         InitData: (state, props) => {
@@ -27,6 +28,7 @@ export const cartSlice = createSlice({
         AddToCart: (state, props) => {
             let quantity = Coockie.get("quantity") ? Coockie.get("quantity") : 0
             quantity++
+            state.quantity++
             Coockie.set("quantity", JSON.stringify(quantity), { expires: 1 / 24 })
             state.products.push(props.payload)
             if (props.payload.pizza) {
@@ -45,10 +47,12 @@ export const cartSlice = createSlice({
             if (products[index].pizza) {
 
                 quantity -= products[index].pizza.quantity
+                state.quantity -= products[index].pizza.quantity
                 Coockie.set("quantity", JSON.stringify(quantity), { expires: 1 / 24 })
                 state.total -= (products[index].pizza.price + products[index].cheese.price) * products[index].pizza.quantity
             }
             else {
+                state.quantity -= products[index].product.quantity
                 quantity -= products[index].product.quantity
                 Coockie.set("quantity", JSON.stringify(quantity), { expires: 1 / 24 })
                 state.total -= products[index].product.price * products[index].product.quantity
@@ -65,6 +69,7 @@ export const cartSlice = createSlice({
             //get quantity in cookie
             let quantity = Coockie.get("quantity") ? parseInt(Coockie.get("quantity")) : 0
             quantity += parseInt(data.number)
+            state.quantity += parseInt(data.number)
 
             //update quantity to cookie
             Coockie.set("quantity", JSON.stringify(quantity), { expires: 1 / 24 })
@@ -90,6 +95,7 @@ export const cartSlice = createSlice({
         DeleteData: (state, props) => {
             state.total = 0
             state.products = []
+            state.quantity = 0
             Coockie.remove("orderInfo")
             Coockie.remove("cart")
             Coockie.set("quantity", 0, { expires: 1 / 24 })
