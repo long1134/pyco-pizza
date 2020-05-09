@@ -115,7 +115,7 @@ function ProductPageContainer(props) {
                                 trigger={<div className="ProductComponent-container">
                                     <ProductComponent {...product} /></div>}
                                 modal
-                                closeOnDocumentClick position="right">
+                                closeOnDocumentClick>
                                 {close => (
                                     <ProductDetailComponent product={{ ...product }} onClose={close} />
                                 )}

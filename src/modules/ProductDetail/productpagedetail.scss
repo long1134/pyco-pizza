@@ -6,6 +6,21 @@
     background-position: center;
 }
 
+.popup-content {
+    max-width: auto !important;
+
+    @media screen and(max-width :1500px) {
+        width: 800px !important;
+        max-width: 800px !important;
+    }
+
+    @media screen and(max-width :560px) {
+        width: 800px !important;
+        max-width: 800px !important;
+    }
+
+}
+
 .product-detail-container {
     padding: 10px 50px;
     padding-bottom: 20px;
@@ -13,6 +28,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
     column-gap: 2rem;
+    margin: auto;
 
     @media screen and(max-width : 999px) {
         grid-template-columns: 30% 70%;
@@ -20,25 +36,35 @@
 
     @media screen and(max-width : 768px) {
         grid-template-columns: 1fr;
+        max-height: 100%;
+        overflow: scroll;
+    }
+
+    @media screen and(max-height : 800px) {
+        max-height: 600px;
+        overflow: scroll;
+    }
+
+    @media screen and(max-height : 750px) {
         max-height: 500px;
         overflow: scroll;
     }
 
-    @media screen and(max-height: 600px) {
+    @media screen and(max-height : 650px) {
         max-height: 400px;
+        overflow: scroll;
     }
 
-    @media screen and(max-width : 576px) {
-        max-width: 300px;
-    }
-
-    @media screen and(max-width : 444px) {
-        max-width: 250px;
-    }
 
     img {
         width: 100%;
         height: auto;
+
+        @media screen and(max-width : 770px) {
+            display: flex;
+            width: 60%;
+            margin: auto;
+        }
     }
 
     .raio-container {
@@ -135,18 +161,6 @@
         font-weight: 700;
         background-image: linear-gradient(to right, #820014, #E31837);
         margin-bottom: 30px;
-    }
-}
-
-.response-mobile {
-
-
-    @media screen and(max-width : 576px) {
-        max-width: 400px;
-    }
-
-    @media screen and(max-width : 444px) {
-        max-width: 200px;
     }
 }
 
