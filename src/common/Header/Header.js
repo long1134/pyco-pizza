@@ -68,7 +68,6 @@ function Header(props) {
                             <FaShoppingCart size={25} color="white" />
                             <div className="count bg-red">{quantity}</div>
                         </div>
-                        <FiMenu className=" ml-2" color="white" />
                     </div>
                 </div>
             </div>
