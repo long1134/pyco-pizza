@@ -6,6 +6,7 @@ import CartContainer from "../../common/CartComponent/CartContainer"
 import PopupLoading from "../../common/popupLoading/popupLoading"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import { FaShoppingCart } from "react-icons/fa"
+import { IoIosArrowUp } from "react-icons/io"
 import TinySlider from "tiny-slider-react";
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from 'react-redux';
@@ -130,7 +131,7 @@ function ProductPageContainer(props) {
             </div>
             <div className="snack-bar">
                 <div className="container ds-grid snack-bar-content">
-                    <div className="" onClick={e => HandleStatusCartDetail()}>
+                    <div className="">
                         <div className="ps-relative mt-2">
                             <FaShoppingCart size={15} color="#0B2030" />
                             <div className="count bg-red">{total}</div>
@@ -139,6 +140,12 @@ function ProductPageContainer(props) {
                             <h3 className="mr-2">Total : </h3>
                             <h3 >{cartReducer.total.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} đ</h3>
                         </div>
+                    </div>
+                    <div onClick={HandleStatusCartDetail}
+                        className="snack-bar-arrow-icon txt-center cursor-pointer">
+                        <img src={statusCartDetail === "close" ?
+                            "https://image.flaticon.com/icons/png/128/36/36905.png" :
+                            "https://image.flaticon.com/icons/png/128/36/36657.png"} />
                     </div>
                     <ButtonComponent onClick={handleCheckout} content="Checkout" className="snack-bar-btn cursor-pointer" />
                 </div>

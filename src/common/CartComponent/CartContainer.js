@@ -77,7 +77,7 @@ function SummaryPageContainer(props) {
             <div className="cart-container">
                 <div className="color-red mb-2 border-line-dotted ds-flex">
                     <h1>Order detail</h1>
-                    <TiTimes className="ml-auto color-black icon-mobile" fontSize="30" onClick={e => props.onClick()} />
+                    <TiTimes className="ml-auto color-black icon-mobile cursor-pointer" fontSize="30" onClick={e => props.onClick()} />
                 </div>
                 <div className="cart-item-container">
                     {products.map((product, index) => (

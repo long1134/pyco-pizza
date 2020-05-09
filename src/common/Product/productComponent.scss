@@ -60,6 +60,10 @@ h2 {
         grid-template-columns: 1fr 3fr;
     }
 
+    @media only screen and (max-width: 350px) {
+        padding: 0px;
+    }
+
     &:hover {
         background: #0B2030;
         transition: all 0.2s;
@@ -85,6 +89,7 @@ h2 {
         @include respond(phone) {
             width: 120px;
             height: 110px;
+            object-fit: contain;
         }
     }
 

@@ -36,7 +36,7 @@ function CartItemDetail(props) {
             {!props.product.categoryId ?
                 <p className="grid-area-d">{cheese.name} cheese</p> : ""}
             {!props.product.categoryId ?
-                <h4 className="fs-15 ml-auto grid-area-f">{cheese.price.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} Đ</h4> : ""}
+                <h4 className="fs-15 grid-area-f">{cheese.price.toString().replace(/(.)(?=(\d{3})+$)/g, '$1.')} Đ</h4> : ""}
             {props.type !== "checkout" ?
                 <button className="grid-area-e cursor-pointer" onClick={e => props.RemoveFromCart(props.index)}>Remove</button> : ""}
         </div >
