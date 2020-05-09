@@ -17,6 +17,11 @@ export function* handleLogin(action) {
             error = err
         })
         if (error) {
+            console.log(error["response"].data)
+            if (error["response"].status === 302) {
+
+                return yield put(Slice.actions.LoginSuccess({ ...error["response"].data }))
+            }
             return yield put(Slice.actions.LoginFail(error))
         }
         yield put(Slice.actions.LoginSuccess(data))

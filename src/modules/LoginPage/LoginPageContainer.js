@@ -17,18 +17,18 @@ function LoginPageContainer(props) {
     const loginReducers = useSelector(Slice.reducers)
     const validate = values => {
         const errors = {}
-        if (!values.emailorphone) {
-            errors.emailorphone = "Required"
+        if (!values.requiredEntry) {
+            errors.requiredEntry = "Required"
         }
-        else if (!/[^a-z0-9]/g.test(values.emailorphone)) {
-            if (values.emailorphone.length > 11 ||
-                values.emailorphone.length < 10 ||
-                values.emailorphone.substring(0, 1) !== "0") {
-                errors.emailorphone = "Your phone is invalid Viet Nam phone format"
+        else if (!/[^a-z0-9]/g.test(values.requiredEntry)) {
+            if (values.requiredEntry.length > 11 ||
+                values.requiredEntry.length < 10 ||
+                values.requiredEntry.substring(0, 1) !== "0") {
+                errors.requiredEntry = "Your phone is invalid Viet Nam phone format"
             }
         }
-        else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.emailorphone)) {
-            errors.emailorphone = "Email is invalid"
+        else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(values.requiredEntry)) {
+            errors.requiredEntry = "Email is invalid"
         }
         if (!values.password) {
             errors.password = "Required"
@@ -41,11 +41,12 @@ function LoginPageContainer(props) {
 
     const formik = useFormik({
         initialValues: {
-            emailorphone: "",
+            requiredEntry: "",
             password: ""
         },
         validate,
         onSubmit: values => {
+            console.log(formik.values)
             dispatch(Slice.actions.Login(formik.values))
         },
     })
@@ -76,11 +77,11 @@ function LoginPageContainer(props) {
                     <p className="color-red txt-center mb-2 fs-15">{loginReducers.messageError}</p>
                     <TextInput
                         type="text"
-                        name="emailorphone"
-                        value={formik.values.emailorphone}
+                        name="requiredEntry"
+                        value={formik.values.requiredEntry}
                         onChange={formik.handleChange}
                         placeholder="Email or phone"
-                        error={isSubmit ? formik.errors.emailorphone : ""}
+                        error={isSubmit ? formik.errors.requiredEntry : ""}
                         label={<FaUserAlt fontSize="20" />} />
                     <TextInput
                         type="password"
