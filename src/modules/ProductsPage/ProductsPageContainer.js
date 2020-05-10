@@ -6,7 +6,6 @@ import CartContainer from "../../common/CartComponent/CartContainer"
 import PopupLoading from "../../common/popupLoading/popupLoading"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 import { FaShoppingCart } from "react-icons/fa"
-import { IoIosArrowUp } from "react-icons/io"
 import TinySlider from "tiny-slider-react";
 import Popup from "reactjs-popup";
 import { useSelector, useDispatch } from 'react-redux';

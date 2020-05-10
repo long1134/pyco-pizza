@@ -72,18 +72,18 @@ function FillOrderInfoPageContainer(props) {
                     onChange={formik.handleChange}
                     error={isSubmit ? formik.errors.name : ""}
                     placeholder="Name" />
-                <div className="ds-flex">
+                <div className="ds-flex step-3-btns">
                     <ButtonComponent
-                        className="button__component bg-gey width-130"
-                        content="BACK"
-                        onClick={e => props.history.push("/shipping")} />
-                    <ButtonComponent
-                        className="button__component ml-auto bg-red width-130 mt-0"
+                        className="button__component bg-red width-130 mt-0"
                         content="CONTINUE"
                         onClick={e => {
                             handleSubmit()
                             formik.handleSubmit()
                         }} />
+                    <ButtonComponent
+                        className="button__component bg-gey width-130"
+                        content="BACK"
+                        onClick={e => props.history.push("/shipping")} />
                 </div>
             </form>
 

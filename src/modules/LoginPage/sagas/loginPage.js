@@ -10,6 +10,9 @@ export function* handleLogin(action) {
         yield axios({
             method: "post",
             data: { ...action.payload },
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            },
             url: api.urlLogin
         }).then(res => {
             data = res.data

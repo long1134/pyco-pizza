@@ -14,11 +14,12 @@ import fromGenerator from 'redux-saga-test';
 import storeMain from "../../../stores"
 import { FaItalic } from 'react-icons/fa';
 
-const handleSagasLogin =
-
+describe("demo", () => {
     it("work with unit test", async () => {
         const action = await Sagas.handleLogin({ payload: { emailorphone: "0778722539", password: "longvip113" } })
         action.next()
         console.log(action.next().value)
 
     })
+
+})

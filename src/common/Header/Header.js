@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaShoppingCart, FaUserCircle } from "react-icons/fa"
 import * as Coockie from "js-cookie"
-import { FiMenu } from "react-icons/fi"
 import { useSelector, useDispatch } from 'react-redux';
 import * as cartSlice from "../CartComponent/Slice"
 import "./scss/header.scss"

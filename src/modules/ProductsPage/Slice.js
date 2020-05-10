@@ -35,7 +35,7 @@ export const productSlice = createSlice({
                 }
                 state.products.push({
                     categoryId: props.payload.products[i].idCategory,
-                    desc: props.payload.products[i].desc,
+                    desc: props.payload.products[i].description,
                     name: props.payload.products[i].name,
                     imgUrl: props.payload.products[i].imgUrl,
                     prices: [...prices]

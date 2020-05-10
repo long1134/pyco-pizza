@@ -11,9 +11,6 @@ export const loginSlice = createSlice({
         loading: false
     },
     reducers: {
-        DemoTest: (state, props) => {
-            console.log(props)
-        },
         Login: (state, props) => {
             state.loading = true
         },

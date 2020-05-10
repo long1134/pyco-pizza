@@ -65,7 +65,6 @@ function LoginPageContainer(props) {
     }
     return (
         <div>
-
             <div className={loginReducers.loading ? "customize-popup-open" : "customize-popup-close"}>
                 <PopupLoading />
             </div>
@@ -92,18 +91,21 @@ function LoginPageContainer(props) {
                         placeholder="password"
                         label={<FaLock fontSize="20" />} />
                     {props.type === "login-carry-out" ?
-                        <div className="ds-flex">
-                            <ButtonComponent className="button__component bg-gey width-130" content="BACK" onClick={e => props.history.push("/shipping")} />
-                            <ButtonComponent className="button__component ml-auto bg-red width-130" content="CONTINUE" onClick={e => {
+                        <div className="ds-flex login-carry-btns">
+                            <ButtonComponent className="button__component bg-red width-130" content="CONTINUE" onClick={e => {
                                 handleSubmit()
                                 formik.handleSubmit()
                             }} />
+                            <ButtonComponent className="button__component bg-gey width-130" content="BACK" onClick={e => props.history.push("/shipping")} />
                         </div> :
                         <ButtonComponent type="submit" onSubmit={formik.handleSubmit} onClick={e => {
                             handleSubmit()
                             formik.handleSubmit()
                         }} className="button__component bg-red" content={"Sign in"} />}
-                    <Link to="/signup">Sign up</Link>
+                    <div className="ds-flex">
+                        <p className="mr-1">Don't have an account ? </p>
+                        <Link to="/signup"> Sign up</Link>
+                    </div>
                 </form>
             </div>
 
