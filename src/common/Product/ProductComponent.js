@@ -5,7 +5,7 @@ import PopupMessage from "../popup/Popup"
 import "./productComponent.scss"
 
 function ProductComponent(props) {
-    // console.log(props)
+    console.log(props)
     const { imgUrl, name, prices, desc } = props
     const [openPopup, setOpenPopup] = useState(false)
 
@@ -43,8 +43,6 @@ function ProductComponent(props) {
                     <ButtonComponent className="product-btn mt-3" onClick={e => { }} content={<p>Add to cart <AiOutlineArrowRight /></p>} />
                 </div>
             </div>
-
-
         </div>);
 }
 
