@@ -7,16 +7,17 @@ function FlowProgress(props) {
     const activeStep2 = props.type === "step-2" ? "active" : ""
     const activeStep3 = props.type === "step-3" ? "active" : ""
     const activeStep4 = props.type === "step-4" ? "active" : ""
+    console.log(activeStep1)
     return (
         <div className={"FlowProgress " + props.type}>
             <h3 className={"step-desktop " + activeStep1}>01. OREDER METHOD</h3>
-            <h3 className="step-mobile " >01</h3>
+            <h3 className={"step-mobile " + activeStep1} >01</h3>
             <h3 className={"step-desktop " + activeStep2} >02. SIGN IN</h3>
-            <h3 className="step-mobile ">02</h3>
+            <h3 className={"step-mobile " + activeStep2}>02</h3>
             <h3 className={"step-desktop " + activeStep3}>03. OREDER INFORMATION</h3>
-            <h3 className="step-mobile ">03</h3>
+            <h3 className={"step-mobile " + activeStep3}>03</h3>
             <h3 className={"step-desktop " + activeStep4}>04. CHECK OUT INFORMATION </h3>
-            <h3 className="step-mobile ">04</h3>
+            <h3 className={"step-mobile " + activeStep4}>04</h3>
         </div>
     );
 }
