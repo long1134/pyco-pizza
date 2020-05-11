@@ -60,7 +60,6 @@ function ProductPageContainer(props) {
     }
 
     function handleCheckout() {
-        console.log(total === 0 && popupMesage)
         if (total === 0) {
             setPopupMesage(true)
         }
@@ -142,7 +141,7 @@ function ProductPageContainer(props) {
                     </div>
                     <div onClick={HandleStatusCartDetail}
                         className="snack-bar-arrow-icon txt-center cursor-pointer">
-                        <img src={statusCartDetail === "close" ?
+                        <img alt="arrow" src={statusCartDetail === "close" ?
                             "https://image.flaticon.com/icons/png/128/36/36905.png" :
                             "https://image.flaticon.com/icons/png/128/36/36657.png"} />
                     </div>

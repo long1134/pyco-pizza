@@ -7,7 +7,6 @@ function FlowProgress(props) {
     const activeStep2 = props.type === "step-2" ? "active" : ""
     const activeStep3 = props.type === "step-3" ? "active" : ""
     const activeStep4 = props.type === "step-4" ? "active" : ""
-    console.log(activeStep1)
     return (
         <div className={"FlowProgress " + props.type}>
             <h3 className={"step-desktop " + activeStep1}>01. OREDER METHOD</h3>
@@ -22,4 +21,4 @@ function FlowProgress(props) {
     );
 }
 
-export default FlowProgress;
+export default FlowProgress;                

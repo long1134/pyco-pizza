@@ -41,12 +41,11 @@ function LoginPageContainer(props) {
 
     const formik = useFormik({
         initialValues: {
-            emailorphone: "",
-            password: ""
+            emailorphone: loginReducers.user.emailorphone,
+            password: loginReducers.user.password,
         },
         validate,
         onSubmit: values => {
-            console.log(formik.values)
             dispatch(Slice.actions.Login(formik.values))
         },
     })

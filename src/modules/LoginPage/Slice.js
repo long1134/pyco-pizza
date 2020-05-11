@@ -11,6 +11,9 @@ export const loginSlice = createSlice({
         loading: false
     },
     reducers: {
+        FillinInfor: (state, props) => {
+            state.user = props.payload
+        },
         Login: (state, props) => {
             state.loading = true
         },

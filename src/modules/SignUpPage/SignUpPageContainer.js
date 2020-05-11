@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import TextInput from "../../common/TextInput/TextInput"
 import ButtonComponent from "../../common/Button/ButtonComponent"
-import { useFormik } from 'formik';
+import { useFormik, isInteger } from 'formik';
 import PopupLoading from "../../common/popupLoading/popupLoading"
 import PopupError from "../../common/popup/Popup"
 import { useSelector, useDispatch } from 'react-redux';
 import * as Slice from "./Slice"
+import * as SliceLogin from "../LoginPage/Slice"
 
 function SignUpPageContainer(props) {
     // console.log(props)
@@ -35,6 +36,9 @@ function SignUpPageContainer(props) {
         }
         if (!values.phone) {
             errors.phone = "Required"
+        }
+        else if (!/^\d+$/.test(values.phone)) {
+            errors.phone = "Phone just only number"
         }
         else if (values.phone.length > 11 ||
             values.phone.length < 10 ||
@@ -77,8 +81,13 @@ function SignUpPageContainer(props) {
     return (
         <div className="container">
             <div onClick={e => {
+                dispatch(SliceLogin.actions.FillinInfor({
+                    emailorphone: formik.values.phone,
+                    password: formik.values.password
+                }))
                 window.location.reload(false)
                 setOpenPopup(false)
+                props.history.goBack()
             }} className={openPopup && signUpReducers.signUpSuccess ? "customize-popup-open" : "customize-popup-close"}>
                 <PopupError message={"Sign Up success!!!"} />
             </div>

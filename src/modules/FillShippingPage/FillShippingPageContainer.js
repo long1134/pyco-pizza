@@ -5,6 +5,7 @@ import "./FillShippingPage.scss"
 function FillShippingPageContainer(props) {
     function HandleMethod() {
         props.history.push("login-carry-out")
+        window.location.reload(false)
     }
     return (
         <div className="container">
