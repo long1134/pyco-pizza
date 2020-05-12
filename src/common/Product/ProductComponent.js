@@ -5,7 +5,6 @@ import PopupMessage from "../popup/Popup"
 import "./productComponent.scss"
 
 function ProductComponent(props) {
-    console.log(props)
     const { imgUrl, name, prices, desc } = props
     const [openPopup, setOpenPopup] = useState(false)
 

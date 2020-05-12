@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 // import TextInput from "../../Common/TextInput"
 // import ButtonComponent from "../../Common/ButtonComponent"
 import ButtonComponent from "../Button/ButtonComponent"
+import { Link } from 'react-router-dom';
 import { TiTimes } from "react-icons/ti"
 import CartItem from "./CartItemDetail"
 import PopupError from "../popup/Popup"
@@ -77,6 +78,7 @@ function SummaryPageContainer(props) {
             <div className="cart-container">
                 <div className="color-red mb-2 border-line-dotted ds-flex">
                     <h1>Order detail</h1>
+                    {props.type === "checkout" ? <Link to="/cart-summary" className="edit-link">Edit</Link> : ""}
                     <TiTimes className="ml-auto color-black icon-mobile cursor-pointer" fontSize="30" onClick={e => props.onClick()} />
                 </div>
                 <div className="cart-item-container">

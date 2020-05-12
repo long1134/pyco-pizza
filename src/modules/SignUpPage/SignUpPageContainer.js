@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextInput from "../../common/TextInput/TextInput"
 import ButtonComponent from "../../common/Button/ButtonComponent"
-import { useFormik, isInteger } from 'formik';
+import { useFormik } from 'formik';
 import PopupLoading from "../../common/popupLoading/popupLoading"
 import PopupError from "../../common/popup/Popup"
 import { useSelector, useDispatch } from 'react-redux';
@@ -65,13 +65,14 @@ function SignUpPageContainer(props) {
         },
         validate,
         onSubmit: values => {
-            dispatch(Slice.actions.SignUp({
-                email: values.email,
-                password: values.password,
-                phone: values.phone,
-                firstname: values.firstname,
-                lastname: values.lastname,
-            }))
+            if (!signUpReducers.signUpSuccess)
+                dispatch(Slice.actions.SignUp({
+                    email: values.email,
+                    password: values.password,
+                    phone: values.phone,
+                    firstname: values.firstname,
+                    lastname: values.lastname,
+                }))
             setOpenPopup(true)
         },
     })
@@ -85,7 +86,6 @@ function SignUpPageContainer(props) {
                     emailorphone: formik.values.phone,
                     password: formik.values.password
                 }))
-                window.location.reload(false)
                 setOpenPopup(false)
                 props.history.goBack()
             }} className={openPopup && signUpReducers.signUpSuccess ? "customize-popup-open" : "customize-popup-close"}>
