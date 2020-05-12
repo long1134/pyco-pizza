@@ -21,6 +21,12 @@
 
 }
 
+.response-mobile {
+    @media screen and(max-width :500px) {
+        max-width: 400px;
+    }
+}
+
 .product-detail-container {
     padding: 10px 50px;
     padding-bottom: 20px;
@@ -180,5 +186,12 @@
         display: grid;
         grid-template-columns: 1fr;
     }
+}
 
+.icon-close {
+    position: absolute;
+    color: wheat;
+    right: 10px;
+    font-size: 4rem;
+    z-index: 1000;
 }

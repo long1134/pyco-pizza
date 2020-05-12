@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ButtonComponent from "../../common/Button/ButtonComponent"
 import { useDispatch } from 'react-redux';
 import * as cartReducers from "../../common/CartComponent/Slice"
+import { TiTimes } from "react-icons/ti"
 import "./productpagedetail.scss"
 
 function ProductPageDetail(props) {
@@ -48,6 +49,11 @@ function ProductPageDetail(props) {
 
     return (
         <div className="container bg-product-detail">
+            <div className="icon-close" onClick={e => {
+                props.onClose()
+            }}>
+                <TiTimes />
+            </div>
             <div className="product-detail-container container">
                 <div className="response-mobile">
                     <h2>{name}</h2>

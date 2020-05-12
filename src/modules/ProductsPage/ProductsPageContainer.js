@@ -85,16 +85,16 @@ function ProductPageContainer(props) {
             </div>
             <TinySlider settings={setting} ref={ts => tsGlobal = ts}>
                 {slidersName.map((slide, index) => (
-                    <div onClick={e => {
-                        setPopupLoading(true)
-                        props.history.push("/product/" + slide)
-                        window.location.reload(false)
-                    }}
-                        className="tns-item-slider-container cursor-pointer"
+                    <div className="tns-item-slider-container "
                         key={index}>
-                        <div className={urlParams === slide || (slide === "pizza" && params.indexOf(urlParams) === -1) ?
-                            "tns-item-slider-active" :
-                            "tns-item-slider"}>
+                        <div onClick={e => {
+                            setPopupLoading(true)
+                            props.history.push("/product/" + slide)
+                            window.location.reload(false)
+                        }}
+                            className={"cursor-pointer " + (urlParams === slide || (slide === "pizza" && params.indexOf(urlParams) === -1) ?
+                                "tns-item-slider-active" :
+                                "tns-item-slider")}>
                             {slide}
                         </div>
                     </div>))}
