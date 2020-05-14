@@ -52,7 +52,7 @@ function FillOrderInfoPageContainer(props) {
     return (
         <div className="container">
             <FlowProgress type="step-3" />
-            <h2 className="txt-center mb-4" >DEILIVERY</h2>
+            <h2 className="txt-center mb-4" >DELIVERY</h2>
             <form className="order-info-container">
                 <TextInput label={<h4>Address</h4>}
                     name="address"

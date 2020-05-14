@@ -14,12 +14,12 @@ function FillShippingPageContainer(props) {
             <div className="order-method-container">
                 <div className="grab-method cursor-pointer" onClick={e => HandleMethod()}>
                     <img src="https://food.grab.com/static/images/logo-grabfood-white.svg" alt={"grab"} />
-                    <p className="txt-center">Miễn phí cho đơn hàng trên 1000đ</p>
+                    <p className="txt-center">Free for orders over 100.000đ</p>
                 </div>
                 <h3 className="txt-center" >OR</h3>
                 <div className="goviet-method cursor-pointer" onClick={e => HandleMethod()}>
                     <img className="ml-auto" src="https://www.go-viet.vn/wp-content/uploads/2018/06/GOVIET_LOGO_HORI_BW-copy-2.png" alt={"goviet"} />
-                    <p className="txt-center">Tính phí từ 3km trở lên</p>
+                    <p className="txt-center">Charged from 3km and up</p>
                 </div>
             </div>
         </div>
